@@ -50,7 +50,7 @@ class AuthController extends Controller
         $model = new User();
         DB::beginTransaction();
         $model->username = $request->get('username');
-        $model->password = Hash::make($request->input($request->get('username')));
+        $model->password = Hash::make($request->get('password'));
         $model->remember_token = Str::random(55);
         if ($model->save()) {
             DB::commit();
